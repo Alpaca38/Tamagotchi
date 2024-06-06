@@ -76,6 +76,34 @@ class MainViewController: UIViewController {
         foodTextField.underlined()
         waterTextField.underlined()
     }
+    
+    func getLevel() {
+        let exp = (data!.tamagotchiStatus.food / 5) + (data!.tamagotchiStatus.water / 2)
+        var level = 0
+        switch exp {
+        case 0...19:
+            level = 1
+        case 20...29:
+            level = 2
+        case 30...39:
+            level = 3
+        case 40...49:
+            level = 4
+        case 50...59:
+            level = 5
+        case 60...69:
+            level = 6
+        case 70...79:
+            level = 7
+        case 80...89:
+            level = 8
+        case 90...99:
+            level = 9
+        default:
+            level = 10
+        }
+        data?.tamagotchiStatus.level = level
+    }
 
 }
 
@@ -185,30 +213,40 @@ extension MainViewController: ConfigureProtocol {
     
     @objc func foodButtonTapped() {
         let text = foodTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        if let amount = Int(text!) {
+        
+        if let amount = Int(text!), amount < 100 {
             data?.tamagotchiStatus.food += amount
         } else if text?.isEmpty == true {
             data?.tamagotchiStatus.food += 1
         } else {
-            showAlert(title: "숫자만 입력해주세요", message: nil)
+            showAlert(title: "올바르지 않은 값입니다.", message: "100개 이상 먹을 수 없어요")
         }
+        
         foodTextField.text = nil
+        
         let randomIndex = Int.random(in: 0...data!.foodSpeech.count - 1)
         speechLabel.text = data?.foodSpeech[randomIndex]
+        
+        getLevel()
     }
     
     @objc func waterButtonTapped() {
         let text = waterTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        if let amount = Int(text!) {
+        
+        if let amount = Int(text!), amount < 50 {
             data?.tamagotchiStatus.water += amount
         } else if text?.isEmpty == true {
             data?.tamagotchiStatus.water += 1
         } else {
-            showAlert(title: "숫자만 입력해주세요", message: nil)
+            showAlert(title: "올바르지 않은 값입니다.", message: "50개 이상 먹을 수 없어요")
         }
+        
         waterTextField.text = nil
+        
         let randomIndex = Int.random(in: 0...data!.waterSpeech.count - 1)
         speechLabel.text = data?.waterSpeech[randomIndex]
+        
+        getLevel()
     }
     
 }
