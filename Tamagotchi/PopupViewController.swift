@@ -98,7 +98,7 @@ extension PopupViewController: ConfigureProtocol {
         alertView.clipsToBounds = true
         alertView.layer.cornerRadius = 5
         
-        tamagaImageView.setTamagotchiView(radius: 50, borderWidth: 2.5)
+        tamagaImageView.contentMode = .scaleAspectFill
         tamagaImageView.image = UIImage(named: data!.image)
         
         
@@ -132,9 +132,19 @@ extension PopupViewController: ConfigureProtocol {
     
     @objc func okButtonTapped() {
         if okButton.currentTitle == "시작하기" {
-            print("메인화면으로 전환")
+            let vc = MainViewController()
+            vc.data = data
+            let navi = UINavigationController(rootViewController: vc)
+            navi.modalPresentationStyle = .fullScreen
+            navi.modalTransitionStyle = .crossDissolve
+            
+            present(navi, animated: true)
         } else {
-            print("선택화면으로 전환")
+            let vc = SelectViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            
+            present(vc, animated: true)
         }
     }
     

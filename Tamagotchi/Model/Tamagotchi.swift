@@ -32,7 +32,7 @@ struct TamagotchiList {
 }
 
 struct TamagotchiData {
-    let user: User
+    var user: User
     
     let name: String
     let image: String
@@ -45,7 +45,7 @@ struct TamagotchiData {
 }
 
 struct TamagotchiStatus {
-    var level: Int = 0
+    var level: Int = 1
     var food: Int = 0
     var water: Int = 0
     
@@ -55,7 +55,7 @@ struct TamagotchiStatus {
 }
 
 struct User {
-    let name: String = "대장"
+    var name: String = "대장"
     
     var title: String {
         return "\(name)님의 다마고치"

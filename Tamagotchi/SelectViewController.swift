@@ -12,7 +12,11 @@ class SelectViewController: UIViewController {
     
     let tableView = UITableView()
     
-    var list = TamagotchiList.tamagoList
+    var list = TamagotchiList.tamagoList {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -25,8 +25,9 @@
 		D195801F2C11828D0080E2FF /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195801E2C11828D0080E2FF /* Extension+UIView.swift */; };
 		D19580222C1185570080E2FF /* TamagoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580212C1185570080E2FF /* TamagoTableViewCell.swift */; };
 		D19580242C1187E50080E2FF /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580232C1187E50080E2FF /* CustomLabel.swift */; };
-		D19580262C1188800080E2FF /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580252C1188800080E2FF /* Extension+UIImageView.swift */; };
 		D195802B2C1190F20080E2FF /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195802A2C1190F20080E2FF /* PopupViewController.swift */; };
+		D195802D2C11A2240080E2FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195802C2C11A2240080E2FF /* MainViewController.swift */; };
+		D195802F2C11BB220080E2FF /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195802E2C11BB220080E2FF /* Extension+UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +50,9 @@
 		D195801E2C11828D0080E2FF /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		D19580212C1185570080E2FF /* TamagoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagoTableViewCell.swift; sourceTree = "<group>"; };
 		D19580232C1187E50080E2FF /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
-		D19580252C1188800080E2FF /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		D195802A2C1190F20080E2FF /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		D195802C2C11A2240080E2FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D195802E2C11BB220080E2FF /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				D19580072C11760D0080E2FF /* APIKey.swift */,
 				D19580232C1187E50080E2FF /* CustomLabel.swift */,
 				D195802A2C1190F20080E2FF /* PopupViewController.swift */,
+				D195802C2C11A2240080E2FF /* MainViewController.swift */,
 			);
 			path = Tamagotchi;
 			sourceTree = "<group>";
@@ -110,7 +113,7 @@
 				D19580122C1178160080E2FF /* Extension+UIImage.swift */,
 				D195801A2C11814F0080E2FF /* Extension+UIViewController.swift */,
 				D195801E2C11828D0080E2FF /* Extension+UIView.swift */,
-				D19580252C1188800080E2FF /* Extension+UIImageView.swift */,
+				D195802E2C11BB220080E2FF /* Extension+UIButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -224,14 +227,15 @@
 				D1957FF62C1174C60080E2FF /* SelectViewController.swift in Sources */,
 				D195800E2C1177D50080E2FF /* Extension+UIColor.swift in Sources */,
 				D19580222C1185570080E2FF /* TamagoTableViewCell.swift in Sources */,
+				D195802D2C11A2240080E2FF /* MainViewController.swift in Sources */,
 				D195802B2C1190F20080E2FF /* PopupViewController.swift in Sources */,
-				D19580262C1188800080E2FF /* Extension+UIImageView.swift in Sources */,
 				D1957FF22C1174C60080E2FF /* AppDelegate.swift in Sources */,
 				D19580082C11760D0080E2FF /* APIKey.swift in Sources */,
 				D19580112C1177F00080E2FF /* Extension+UIFont.swift in Sources */,
 				D19580192C117ABD0080E2FF /* Tamagotchi.swift in Sources */,
 				D195801B2C11814F0080E2FF /* Extension+UIViewController.swift in Sources */,
 				D195801D2C1182160080E2FF /* ConfigureProtocol.swift in Sources */,
+				D195802F2C11BB220080E2FF /* Extension+UIButton.swift in Sources */,
 				D1957FF42C1174C60080E2FF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
