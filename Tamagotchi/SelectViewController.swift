@@ -61,7 +61,14 @@ extension SelectViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let data = list[indexPath.row]
+        if data.image != "noImage" {
+            let vc = PopupViewController()
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
+            vc.data = data
+            present(vc, animated: true)
+        }
     }
     
     

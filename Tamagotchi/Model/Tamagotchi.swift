@@ -38,6 +38,10 @@ struct TamagotchiData {
     let image: String
     
     var tamagotchiStatus: TamagotchiStatus
+    
+    var descriptionString: String {
+        return "저는 \(name)입니당 키는 100km\n몸무게는 150톤이에용\n성격은 화끈하고 날라다닙니당~!\n열심히 잘 먹고 잘 클 자신은\n있답니당"
+    }
 }
 
 struct TamagotchiStatus {

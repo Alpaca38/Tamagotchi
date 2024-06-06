@@ -28,10 +28,10 @@ class CustomLabel: UILabel {
     }
     
     func setTamagoLabel() {
-        backgroundColor = UIColor.backgroundColor
-        textColor = UIColor.fontAndBorderColor
+        backgroundColor = .backgroundColor
+        textColor = .fontAndBorderColor
         textAlignment = .center
-        font = UIFont.titleFont
+        font = .titleFont
         clipsToBounds = true
         layer.cornerRadius = 5
         layer.borderWidth = 1
