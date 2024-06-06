@@ -7,27 +7,65 @@
 
 import Foundation
 
+enum TamagotchiImages {
+    case first, second, third, others
+    
+    var name: String {
+        switch self {
+            
+        case .first:
+            "따끈따끈 다마고치"
+        case .second:
+            "방실방실 다마고치"
+        case .third:
+            "반짝반짝 다마고치"
+        case .others:
+            "준비중이에요"
+        }
+    }
+    
+    var imageList: [String] {
+        switch self {
+            
+        case .first:
+            return ["1-1", "1-2", "1-3", "1-4", "1-5", "1-6", "1-7", "1-8", "1-9"]
+        case .second:
+            return ["2-1", "2-2", "2-3", "2-4", "2-5", "2-6", "2-7", "2-8", "2-9"]
+        case .third:
+            return ["3-1", "3-2", "3-3", "3-4", "3-5", "3-6", "3-7", "3-8", "3-9"]
+        case .others:
+            return ["noImage"]
+        }
+    }
+    
+    func image(for level: Int) -> String {
+        guard level >= 1 && level <= imageList.count else {
+            return imageList[8]
+        }
+        return imageList[level - 1]
+    }
+}
 struct TamagotchiList {
     static let tamagoList: [TamagotchiData] = [
-        TamagotchiData(user: User(), name: "따끈따끈 다마고치", image: "1-1", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "방실방실 다마고치", image: "2-1", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "반짝반짝 다마고치", image: "3-1", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
-        TamagotchiData(user: User(), name: "준비중이에요", image: "noImage", tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.first.name, image: TamagotchiImages.first.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.second.name, image: TamagotchiImages.second.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.third.name, image: TamagotchiImages.third.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
+        TamagotchiData(user: User(), name: TamagotchiImages.others.name, image: TamagotchiImages.others.imageList[0], tamagotchiStatus: TamagotchiStatus()),
     ]
 }
 

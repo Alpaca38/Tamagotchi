@@ -52,13 +52,12 @@ class MainViewController: UIViewController {
     
     var data: TamagotchiData? {
         didSet {
-            statusLabel.text = data?.tamagotchiStatus.status
+            changeTamagoState()
         }
     }
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureHierachy()
         configureLayout()
         configureUI()
@@ -76,10 +75,13 @@ class MainViewController: UIViewController {
         foodTextField.underlined()
         waterTextField.underlined()
     }
+}
+
+extension MainViewController {
     
     func getLevel() {
         let exp = (data!.tamagotchiStatus.food / 5) + (data!.tamagotchiStatus.water / 2)
-        var level = 0
+        var level: Int
         switch exp {
         case 0...19:
             level = 1
@@ -104,7 +106,27 @@ class MainViewController: UIViewController {
         }
         data?.tamagotchiStatus.level = level
     }
-
+    
+    func changeTamagoState() {
+        guard let data else { return }
+        
+        statusLabel.text = data.tamagotchiStatus.status
+        
+        let tamagotchiImage: UIImage?
+        
+        switch data.name {
+        case TamagotchiImages.first.name:
+            tamagotchiImage = UIImage(named: TamagotchiImages.first.image(for: data.tamagotchiStatus.level))
+        case TamagotchiImages.second.name:
+            tamagotchiImage = UIImage(named: TamagotchiImages.second.image(for: data.tamagotchiStatus.level))
+        case TamagotchiImages.third.name:
+            tamagotchiImage = UIImage(named: TamagotchiImages.third.image(for: data.tamagotchiStatus.level))
+        default:
+            return
+        }
+        
+        tamagoImageView.image = tamagotchiImage
+    }
 }
 
 extension MainViewController: ConfigureProtocol {
