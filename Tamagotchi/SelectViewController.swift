@@ -6,14 +6,63 @@
 //
 
 import UIKit
+import SnapKit
 
 class SelectViewController: UIViewController {
+    
+    let tableView = UITableView()
+    
+    var list = TamagotchiList.tamagoList
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        configureHierachy()
+        configureLayout()
+        configureUI()
     }
-
 
 }
 
+extension SelectViewController: ConfigureProtocol {
+    func configureHierachy() {
+        view.addSubview(tableView)
+    }
+    
+    func configureLayout() {
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.horizontalEdges.bottom.equalToSuperview()
+        }
+    }
+    
+    func configureUI() {
+        view.backgroundColor = UIColor.backgroundColor
+        setNaviTitle("다마고치 선택하기", color: .black)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TamagoTableViewCell.self, forCellReuseIdentifier: TamagoTableViewCell.identifier)
+        tableView.separatorStyle = .none
+    }
+}
+
+extension SelectViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        list.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TamagoTableViewCell.identifier, for: indexPath) as! TamagoTableViewCell
+        let data = list[indexPath.row]
+        cell.configure(data: data)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    
+}
