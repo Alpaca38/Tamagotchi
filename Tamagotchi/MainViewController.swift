@@ -50,7 +50,11 @@ class MainViewController: UIViewController {
         return view
     }()
     
-    var data: TamagotchiData?
+    var data: TamagotchiData? {
+        didSet {
+            statusLabel.text = data?.tamagotchiStatus.status
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +62,13 @@ class MainViewController: UIViewController {
         configureHierachy()
         configureLayout()
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let randomIndex = Int.random(in: 0...data!.mainSpeech.count - 1)
+        speechLabel.text = data?.mainSpeech[randomIndex]
     }
     
     override func viewDidLayoutSubviews() {
@@ -152,23 +163,52 @@ extension MainViewController: ConfigureProtocol {
         speechLabel.font = .contentsFont
         speechLabel.numberOfLines = 0
         speechLabel.textAlignment = .center
-        speechLabel.text = "asdfadsfdasfdasfadsfadsfsadfaddsfsdfsdfdsfsfadsfadsf"
         
         foodTextField.placeholder = "밥주세용"
         foodTextField.font = .contentsFont
         foodTextField.textAlignment = .center
         
         foodButton.setFeedButton(title: "밥먹기", image: .food!)
+        foodButton.addTarget(self, action: #selector(foodButtonTapped), for: .touchUpInside)
         
         waterTextField.placeholder = "물주세용"
         waterTextField.font = .contentsFont
         waterTextField.textAlignment = .center
         
         waterButton.setFeedButton(title: "물먹기", image: .water!)
+        waterButton.addTarget(self, action: #selector(waterButtonTapped), for: .touchUpInside)
     }
     
     @objc func settingButtonTapped() {
         print("설정 화면으로 전환")
+    }
+    
+    @objc func foodButtonTapped() {
+        let text = foodTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if let amount = Int(text!) {
+            data?.tamagotchiStatus.food += amount
+        } else if text?.isEmpty == true {
+            data?.tamagotchiStatus.food += 1
+        } else {
+            showAlert(title: "숫자만 입력해주세요", message: nil)
+        }
+        foodTextField.text = nil
+        let randomIndex = Int.random(in: 0...data!.foodSpeech.count - 1)
+        speechLabel.text = data?.foodSpeech[randomIndex]
+    }
+    
+    @objc func waterButtonTapped() {
+        let text = waterTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if let amount = Int(text!) {
+            data?.tamagotchiStatus.water += amount
+        } else if text?.isEmpty == true {
+            data?.tamagotchiStatus.water += 1
+        } else {
+            showAlert(title: "숫자만 입력해주세요", message: nil)
+        }
+        waterTextField.text = nil
+        let randomIndex = Int.random(in: 0...data!.waterSpeech.count - 1)
+        speechLabel.text = data?.waterSpeech[randomIndex]
     }
     
 }

@@ -42,6 +42,18 @@ struct TamagotchiData {
     var descriptionString: String {
         return "저는 \(name)입니당 키는 100km\n몸무게는 150톤이에용\n성격은 화끈하고 날라다닙니당~!\n열심히 잘 먹고 잘 클 자신은\n있답니당"
     }
+    
+    var mainSpeech: [String] {
+        return ["좋은 하루에요, \(user.name)님", "\(user.name)님 오늘 깃허브 푸시 하셨어영?", "복습 아직 안하셨다구요? 지금 잠이 오세여? \(user.name)님??", "테이블뷰컨트롤러와 뷰컨트롤러는 어떤 차이가 있을까요?"]
+    }
+    
+    var foodSpeech: [String] {
+        return ["\(user.name)님 물주세요", "밥과 물을 잘 먹었더니 레벨업 했어요 고마워요 \(user.name)님", "토할꺼 같아요"]
+    }
+    
+    var waterSpeech: [String] {
+        return ["\(user.name)님 밥주세요", "밥과 물을 잘 먹었더니 레벨업 했어요 고마워요 \(user.name)님", "토할꺼 같아요"]
+    }
 }
 
 struct TamagotchiStatus {
