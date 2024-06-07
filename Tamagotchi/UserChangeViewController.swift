@@ -58,12 +58,13 @@ extension UserChangeViewController: ConfigureProtocol {
 extension UserChangeViewController {
     @objc func saveButtonTapped() {
         let text = userTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let text else { return }
         
-        if text?.isEmpty == false {
+        if text.count >= 2 && text.count <= 6 {
             user?.name = userTextField.text!
             navigationController?.popViewController(animated: true)
         } else {
-            showAlert(title: "이름을 입력해주세요.", message: nil)
+            showAlert(title: "올바르지 않은 이름입니다.", message: "이름은 2글자 이상 6글자 이하까지 가능합니다.")
         }
     }
 }
