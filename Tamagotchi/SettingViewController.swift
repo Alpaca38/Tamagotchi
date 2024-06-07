@@ -131,12 +131,15 @@ extension SettingViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "웅", style: .default) { [weak self] _ in
             guard let self else { return }
-            print("데이터 초기화")
+            UserDefaults.standard.tamagoList = TamagotchiList.tamagoList
+            UserDefaults.standard.tamagoData = nil
+            UserDefaults.standard.startMode = StartMode.select.rawValue
             let vc = SelectViewController()
-            vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .crossDissolve
+            let navi = UINavigationController(rootViewController: vc)
+            navi.modalPresentationStyle = .fullScreen
+            navi.modalTransitionStyle = .crossDissolve
             
-            present(vc, animated: true)
+            present(navi, animated: true)
         }
         let cancel = UIAlertAction(title: "아냐!", style: .cancel)
         alert.addAction(ok)
