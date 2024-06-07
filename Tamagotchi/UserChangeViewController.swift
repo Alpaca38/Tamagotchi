@@ -12,7 +12,15 @@ class UserChangeViewController: UIViewController {
     
     let userTextField = UITextField()
     
-    var user: User?
+    var data: TamagotchiData? {
+        get {
+            return UserDefaults.standard.tamagoData
+        }
+        
+        set {
+            UserDefaults.standard.tamagoData = newValue!
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +50,14 @@ extension UserChangeViewController: ConfigureProtocol {
     
     func configureUI() {
         view.backgroundColor = .backgroundColor
-        setNaviTitle("\(user!.name)님의 이름 정하기", color: .fontAndBorderColor)
+        setNaviTitle("\(data!.user.name)님의 이름 정하기", color: .fontAndBorderColor)
         
         let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
         navigationItem.rightBarButtonItem = saveButton
         
         userTextField.textColor = .fontAndBorderColor
         userTextField.font = .contentsFont
-        userTextField.text = user?.name
+        userTextField.text = data?.user.name
     }
     
     
@@ -61,7 +69,7 @@ extension UserChangeViewController {
         guard let text else { return }
         
         if text.count >= 2 && text.count <= 6 {
-            user?.name = userTextField.text!
+            data?.user.name = userTextField.text!
             navigationController?.popViewController(animated: true)
         } else {
             showAlert(title: "올바르지 않은 이름입니다.", message: "이름은 2글자 이상 6글자 이하까지 가능합니다.")

@@ -14,6 +14,16 @@ class SettingTableViewCell: UITableViewCell {
     let titleLabel = UILabel()
     let nameLabel = UILabel()
     
+    var data: TamagotchiData? {
+        get {
+            return UserDefaults.standard.tamagoData
+        }
+        
+        set {
+            UserDefaults.standard.tamagoData = newValue!
+        }
+    }
+    
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -66,12 +76,12 @@ extension SettingTableViewCell: ConfigureProtocol {
         nameLabel.textColor = .fontAndBorderColor.withAlphaComponent(0.5)
     }
     
-    func configure(index: Int, userName: String?) {
+    func configure(index: Int) {
         let data = SettingOptions.allCases[index]
         settingImageView.image = data.image
         titleLabel.text = data.text
         if index == 0 {
-            nameLabel.text = userName
+            nameLabel.text = self.data?.user.name
         }
     }
     

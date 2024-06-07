@@ -41,7 +41,15 @@ class SettingViewController: UIViewController {
     
     let tableView = UITableView()
     
-    var user: User?
+    var data: TamagotchiData? {
+        get {
+            return UserDefaults.standard.tamagoData
+        }
+        
+        set {
+            UserDefaults.standard.tamagoData = newValue!
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +57,12 @@ class SettingViewController: UIViewController {
         configureHierachy()
         configureLayout()
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
 }
 
@@ -82,7 +96,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
-        cell.configure(index: indexPath.row, userName: user?.name)
+        cell.configure(index: indexPath.row)
         
         return cell
     }
@@ -91,11 +105,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let vc = UserChangeViewController()
-            vc.user = user
+            vc.data = data
             navigationController?.pushViewController(vc, animated: true)
         case 1:
             let vc = SelectViewController()
-            vc.user = user
             navigationController?.pushViewController(vc, animated: true)
         case 2:
             resetAlert(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실 건가용?")

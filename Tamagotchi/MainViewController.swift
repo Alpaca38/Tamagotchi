@@ -58,7 +58,6 @@ class MainViewController: UIViewController {
         set {
             // 데이터가 새로운 값으로 바뀔때!
             UserDefaults.standard.tamagoData = newValue!
-            changeTamagoState()
         }
     }
         
@@ -73,6 +72,8 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setNaviTitle(data!.user.title, color: .fontAndBorderColor)
         
         let randomIndex = Int.random(in: 0...data!.mainSpeech.count - 1)
         speechLabel.text = data?.mainSpeech[randomIndex]
@@ -204,7 +205,6 @@ extension MainViewController: ConfigureProtocol {
     
     func configureUI() {
         view.backgroundColor = .backgroundColor
-        setNaviTitle(data!.user.title, color: .fontAndBorderColor)
         navigationItem.backButtonDisplayMode = .minimal
         
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
@@ -249,7 +249,7 @@ extension MainViewController {
     
     @objc func settingButtonTapped() {
         let vc = SettingViewController()
-        vc.user = data?.user
+        vc.data = data
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -271,6 +271,7 @@ extension MainViewController {
         
         getLevel()
         changeImage()
+        changeTamagoState()
     }
     
     @objc func waterButtonTapped() {
@@ -291,5 +292,6 @@ extension MainViewController {
         
         getLevel()
         changeImage()
+        changeTamagoState()
     }
 }

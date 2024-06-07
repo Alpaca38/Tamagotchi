@@ -18,7 +18,15 @@ class SelectViewController: UIViewController {
         }
     }
     
-    var user: User?
+    var data: TamagotchiData? {
+        get {
+            return UserDefaults.standard.tamagoData
+        }
+        
+        set {
+            UserDefaults.standard.tamagoData = newValue!
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +54,7 @@ extension SelectViewController: ConfigureProtocol {
     
     func configureUI() {
         view.backgroundColor = UIColor.backgroundColor
-        if user != nil {
+        if data != nil {
             setNaviTitle("다마고치 변경하기", color: .fontAndBorderColor)
         } else {
             setNaviTitle("다마고치 선택하기", color: .black)
@@ -80,7 +88,6 @@ extension SelectViewController: UITableViewDelegate, UITableViewDataSource {
             vc.modalTransitionStyle = .crossDissolve
             UserDefaults.standard.tamagoData = data
             vc.data = data
-            vc.user = user
             present(vc, animated: true)
         } else {
             showAlert(title: "준비중입니다.", message: nil)
