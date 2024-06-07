@@ -29,7 +29,12 @@ class PopupViewController: UIViewController {
         return view
     }()
     
-    var data: TamagotchiData? = UserDefaults.standard.tamagoData
+//    var data: TamagotchiData? = UserDefaults.standard.tamagoData
+    var data: TamagotchiData? {
+        get { return UserDefaults.standard.tamagoData }
+        
+        set { UserDefaults.standard.tamagoData = newValue!}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

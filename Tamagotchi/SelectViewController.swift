@@ -31,6 +31,11 @@ class SelectViewController: UIViewController {
         configureLayout()
         configureUI()
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
         if data == nil {
             UserDefaults.standard.startMode = StartMode.select.rawValue
         } else {
@@ -55,7 +60,7 @@ extension SelectViewController: ConfigureProtocol {
     func configureUI() {
         view.backgroundColor = UIColor.backgroundColor
         
-        if data != nil {
+        if UserDefaults.standard.startMode == StartMode.main.rawValue {
             setNaviTitle("다마고치 변경하기", color: .fontAndBorderColor)
         } else {
             setNaviTitle("다마고치 선택하기", color: .black)
