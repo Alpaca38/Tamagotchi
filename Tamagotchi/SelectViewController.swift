@@ -26,6 +26,8 @@ class SelectViewController: UIViewController {
         configureHierachy()
         configureLayout()
         configureUI()
+        
+        UserDefaults.standard.startMode = StartMode.select.rawValue
     }
 
 }

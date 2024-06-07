@@ -15,8 +15,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let navi = UINavigationController(rootViewController: SelectViewController())
-        window?.rootViewController = navi
+        
+        let startModeString = UserDefaults.standard.startMode
+        let startMode = StartMode(rawValue: startModeString) ?? .select
+        var startViewController: UIViewController
+        
+        switch startMode {
+        case .select:
+            startViewController = SelectViewController()
+        case .main:
+            let navi = UINavigationController(rootViewController: MainViewController())
+            startViewController = navi
+        }
+        
+        window?.rootViewController = startViewController
         window?.makeKeyAndVisible()
     }
 

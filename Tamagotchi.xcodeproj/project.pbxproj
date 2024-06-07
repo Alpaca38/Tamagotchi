@@ -14,7 +14,6 @@
 		D1957FFE2C1174C70080E2FF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = D1957FFD2C1174C70080E2FF /* Base */; };
 		D19580062C1175B50080E2FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D19580052C1175B50080E2FF /* .gitignore */; };
 		D19580082C11760D0080E2FF /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580072C11760D0080E2FF /* APIKey.swift */; };
-		D195800B2C1176740080E2FF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D195800A2C1176740080E2FF /* SnapKit */; };
 		D195800E2C1177D50080E2FF /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195800D2C1177D50080E2FF /* Extension+UIColor.swift */; };
 		D19580112C1177F00080E2FF /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580102C1177F00080E2FF /* Extension+UIFont.swift */; };
 		D19580132C1178160080E2FF /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580122C1178160080E2FF /* Extension+UIImage.swift */; };
@@ -31,6 +30,8 @@
 		D19580312C1214100080E2FF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580302C1214100080E2FF /* SettingViewController.swift */; };
 		D19580332C12B6020080E2FF /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580322C12B6020080E2FF /* SettingTableViewCell.swift */; };
 		D19580352C12C08B0080E2FF /* UserChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580342C12C08B0080E2FF /* UserChangeViewController.swift */; };
+		D19580392C12D9350080E2FF /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580382C12D9350080E2FF /* UserDefaults.swift */; };
+		D195803C2C12DB440080E2FF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D195803B2C12DB440080E2FF /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		D19580302C1214100080E2FF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D19580322C12B6020080E2FF /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		D19580342C12C08B0080E2FF /* UserChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChangeViewController.swift; sourceTree = "<group>"; };
+		D19580382C12D9350080E2FF /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D195800B2C1176740080E2FF /* SnapKit in Frameworks */,
+				D195803C2C12DB440080E2FF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				D19580182C117ABD0080E2FF /* Tamagotchi.swift */,
+				D19580382C12D9350080E2FF /* UserDefaults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,7 +172,7 @@
 			);
 			name = Tamagotchi;
 			packageProductDependencies = (
-				D195800A2C1176740080E2FF /* SnapKit */,
+				D195803B2C12DB440080E2FF /* SnapKit */,
 			);
 			productName = Tamagotchi;
 			productReference = D1957FEE2C1174C60080E2FF /* Tamagotchi.app */;
@@ -200,7 +203,7 @@
 			);
 			mainGroup = D1957FE52C1174C60080E2FF;
 			packageReferences = (
-				D19580092C1176740080E2FF /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D195803A2C12DB440080E2FF /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = D1957FEF2C1174C60080E2FF /* Products */;
 			projectDirPath = "";
@@ -234,6 +237,7 @@
 				D195801F2C11828D0080E2FF /* Extension+UIView.swift in Sources */,
 				D19580242C1187E50080E2FF /* CustomLabel.swift in Sources */,
 				D1957FF62C1174C60080E2FF /* SelectViewController.swift in Sources */,
+				D19580392C12D9350080E2FF /* UserDefaults.swift in Sources */,
 				D19580312C1214100080E2FF /* SettingViewController.swift in Sources */,
 				D195800E2C1177D50080E2FF /* Extension+UIColor.swift in Sources */,
 				D19580222C1185570080E2FF /* TamagoTableViewCell.swift in Sources */,
@@ -471,7 +475,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D19580092C1176740080E2FF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		D195803A2C12DB440080E2FF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -482,9 +486,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D195800A2C1176740080E2FF /* SnapKit */ = {
+		D195803B2C12DB440080E2FF /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D19580092C1176740080E2FF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = D195803A2C12DB440080E2FF /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

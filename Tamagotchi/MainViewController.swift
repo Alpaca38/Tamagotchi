@@ -61,6 +61,8 @@ class MainViewController: UIViewController {
         configureHierachy()
         configureLayout()
         configureUI()
+        
+        UserDefaults.standard.startMode = StartMode.main.rawValue
     }
     
     override func viewWillAppear(_ animated: Bool) {
