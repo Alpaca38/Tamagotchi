@@ -52,7 +52,7 @@ extension TamagoTableViewCell: ConfigureProtocol {
     }
     
     func configureUI() {
-        backgroundColor = UIColor.backgroundColor
+        backgroundColor = .backgroundColor
         selectionStyle = .none
         tamagoImageView.contentMode = .scaleAspectFill
         nameLabel.setTamagoLabel()

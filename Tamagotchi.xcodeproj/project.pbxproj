@@ -28,6 +28,8 @@
 		D195802B2C1190F20080E2FF /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195802A2C1190F20080E2FF /* PopupViewController.swift */; };
 		D195802D2C11A2240080E2FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195802C2C11A2240080E2FF /* MainViewController.swift */; };
 		D195802F2C11BB220080E2FF /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195802E2C11BB220080E2FF /* Extension+UIButton.swift */; };
+		D19580312C1214100080E2FF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580302C1214100080E2FF /* SettingViewController.swift */; };
+		D19580332C12B6020080E2FF /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580322C12B6020080E2FF /* SettingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		D195802A2C1190F20080E2FF /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		D195802C2C11A2240080E2FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D195802E2C11BB220080E2FF /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		D19580302C1214100080E2FF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D19580322C12B6020080E2FF /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 				D19580232C1187E50080E2FF /* CustomLabel.swift */,
 				D195802A2C1190F20080E2FF /* PopupViewController.swift */,
 				D195802C2C11A2240080E2FF /* MainViewController.swift */,
+				D19580302C1214100080E2FF /* SettingViewController.swift */,
 			);
 			path = Tamagotchi;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				D19580212C1185570080E2FF /* TamagoTableViewCell.swift */,
+				D19580322C12B6020080E2FF /* SettingTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -225,12 +231,14 @@
 				D195801F2C11828D0080E2FF /* Extension+UIView.swift in Sources */,
 				D19580242C1187E50080E2FF /* CustomLabel.swift in Sources */,
 				D1957FF62C1174C60080E2FF /* SelectViewController.swift in Sources */,
+				D19580312C1214100080E2FF /* SettingViewController.swift in Sources */,
 				D195800E2C1177D50080E2FF /* Extension+UIColor.swift in Sources */,
 				D19580222C1185570080E2FF /* TamagoTableViewCell.swift in Sources */,
 				D195802D2C11A2240080E2FF /* MainViewController.swift in Sources */,
 				D195802B2C1190F20080E2FF /* PopupViewController.swift in Sources */,
 				D1957FF22C1174C60080E2FF /* AppDelegate.swift in Sources */,
 				D19580082C11760D0080E2FF /* APIKey.swift in Sources */,
+				D19580332C12B6020080E2FF /* SettingTableViewCell.swift in Sources */,
 				D19580112C1177F00080E2FF /* Extension+UIFont.swift in Sources */,
 				D19580192C117ABD0080E2FF /* Tamagotchi.swift in Sources */,
 				D195801B2C11814F0080E2FF /* Extension+UIViewController.swift in Sources */,

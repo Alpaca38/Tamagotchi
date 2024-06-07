@@ -115,12 +115,12 @@ extension MainViewController {
         let tamagotchiImage: UIImage?
         
         switch data.name {
-        case TamagotchiImages.first.name:
-            tamagotchiImage = UIImage(named: TamagotchiImages.first.image(for: data.tamagotchiStatus.level))
-        case TamagotchiImages.second.name:
-            tamagotchiImage = UIImage(named: TamagotchiImages.second.image(for: data.tamagotchiStatus.level))
-        case TamagotchiImages.third.name:
-            tamagotchiImage = UIImage(named: TamagotchiImages.third.image(for: data.tamagotchiStatus.level))
+        case Tamagotchi.first.name:
+            tamagotchiImage = UIImage(named: Tamagotchi.first.image(for: data.tamagotchiStatus.level))
+        case Tamagotchi.second.name:
+            tamagotchiImage = UIImage(named: Tamagotchi.second.image(for: data.tamagotchiStatus.level))
+        case Tamagotchi.third.name:
+            tamagotchiImage = UIImage(named: Tamagotchi.third.image(for: data.tamagotchiStatus.level))
         default:
             return
         }
@@ -192,6 +192,8 @@ extension MainViewController: ConfigureProtocol {
     func configureUI() {
         view.backgroundColor = .backgroundColor
         setNaviTitle(data!.user.title, color: .fontAndBorderColor)
+        navigationItem.backButtonDisplayMode = .minimal
+        
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
         settingButton.tintColor = .fontAndBorderColor
         navigationItem.rightBarButtonItem = settingButton
@@ -228,9 +230,14 @@ extension MainViewController: ConfigureProtocol {
         waterButton.setFeedButton(title: "물먹기", image: .water!)
         waterButton.addTarget(self, action: #selector(waterButtonTapped), for: .touchUpInside)
     }
+}
+
+extension MainViewController {
     
     @objc func settingButtonTapped() {
-        print("설정 화면으로 전환")
+        let vc = SettingViewController()
+        vc.user = data?.user
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func foodButtonTapped() {
@@ -270,5 +277,4 @@ extension MainViewController: ConfigureProtocol {
         
         getLevel()
     }
-    
 }

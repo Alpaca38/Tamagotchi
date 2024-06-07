@@ -9,8 +9,9 @@ import UIKit
 
 extension UIViewController {
     func setNaviTitle(_ title: String, color: UIColor) {
-        navigationItem.titleView?.tintColor = color
         navigationItem.title = title
+        navigationController?.navigationBar.tintColor = color
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: color]
     }
     
     func showAlert(title: String?, message: String?) {
