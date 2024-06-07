@@ -73,7 +73,7 @@ struct TamagotchiData: Codable {
     var user: User
     
     let name: String
-    let image: String
+    var image: String
     
     var tamagotchiStatus: TamagotchiStatus
     

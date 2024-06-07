@@ -50,8 +50,14 @@ class MainViewController: UIViewController {
         return view
     }()
     
-    var data: TamagotchiData? = UserDefaults.standard.tamagoData {
-        didSet {
+    var data: TamagotchiData?  {
+        get {
+            return UserDefaults.standard.tamagoData
+        }
+        
+        set {
+            // 데이터가 새로운 값으로 바뀔때!
+            UserDefaults.standard.tamagoData = newValue!
             changeTamagoState()
         }
     }
@@ -114,20 +120,25 @@ extension MainViewController {
         
         statusLabel.text = data.tamagotchiStatus.status
         
-        let tamagotchiImage: UIImage?
+    }
+    
+    func changeImage() {
+        guard var data else { return }
         
         switch data.name {
         case Tamagotchi.first.name:
-            tamagotchiImage = UIImage(named: Tamagotchi.first.image(for: data.tamagotchiStatus.level))
+            data.image = Tamagotchi.first.image(for: data.tamagotchiStatus.level)
         case Tamagotchi.second.name:
-            tamagotchiImage = UIImage(named: Tamagotchi.second.image(for: data.tamagotchiStatus.level))
+            data.image = Tamagotchi.second.image(for: data.tamagotchiStatus.level)
         case Tamagotchi.third.name:
-            tamagotchiImage = UIImage(named: Tamagotchi.third.image(for: data.tamagotchiStatus.level))
+            data.image = Tamagotchi.third.image(for: data.tamagotchiStatus.level)
         default:
             return
         }
         
-        tamagoImageView.image = tamagotchiImage
+        UserDefaults.standard.tamagoData = data
+        
+        tamagoImageView.image = UIImage(named: data.image)
     }
 }
 
@@ -259,6 +270,7 @@ extension MainViewController {
         speechLabel.text = data?.foodSpeech[randomIndex]
         
         getLevel()
+        changeImage()
     }
     
     @objc func waterButtonTapped() {
@@ -278,5 +290,6 @@ extension MainViewController {
         speechLabel.text = data?.waterSpeech[randomIndex]
         
         getLevel()
+        changeImage()
     }
 }

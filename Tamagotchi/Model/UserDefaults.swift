@@ -26,18 +26,18 @@ extension UserDefaults {
     var tamagoData: TamagotchiData {
         get {
             if let savedData = UserDefaults.standard.object(forKey: UserDefaultsKeys.tamagoData.rawValue) as? Data {
-                    let decoder = JSONDecoder()
-                    if let lodedObejct = try? decoder.decode(TamagotchiData.self, from: savedData) {
-                        return lodedObejct
-                    }
+                let decoder = JSONDecoder()
+                if let lodedObejct = try? decoder.decode(TamagotchiData.self, from: savedData) {
+                    return lodedObejct
                 }
+            }
             return TamagotchiData(user: User(), name: Tamagotchi.first.name, image: Tamagotchi.first.imageList[0], tamagotchiStatus: TamagotchiStatus())
+        }
+        set {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(newValue) {
+                UserDefaults.standard.setValue(encoded, forKey: UserDefaultsKeys.tamagoData.rawValue)
             }
-            set {
-                let encoder = JSONEncoder()
-                if let encoded = try? encoder.encode(newValue) {
-                    UserDefaults.standard.setValue(encoded, forKey: UserDefaultsKeys.tamagoData.rawValue)
-                }
-            }
+        }
     }
 }
