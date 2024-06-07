@@ -30,6 +30,7 @@
 		D195802F2C11BB220080E2FF /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195802E2C11BB220080E2FF /* Extension+UIButton.swift */; };
 		D19580312C1214100080E2FF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580302C1214100080E2FF /* SettingViewController.swift */; };
 		D19580332C12B6020080E2FF /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580322C12B6020080E2FF /* SettingTableViewCell.swift */; };
+		D19580352C12C08B0080E2FF /* UserChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19580342C12C08B0080E2FF /* UserChangeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		D195802E2C11BB220080E2FF /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		D19580302C1214100080E2FF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D19580322C12B6020080E2FF /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		D19580342C12C08B0080E2FF /* UserChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChangeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D195802A2C1190F20080E2FF /* PopupViewController.swift */,
 				D195802C2C11A2240080E2FF /* MainViewController.swift */,
 				D19580302C1214100080E2FF /* SettingViewController.swift */,
+				D19580342C12C08B0080E2FF /* UserChangeViewController.swift */,
 			);
 			path = Tamagotchi;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				D19580192C117ABD0080E2FF /* Tamagotchi.swift in Sources */,
 				D195801B2C11814F0080E2FF /* Extension+UIViewController.swift in Sources */,
 				D195801D2C1182160080E2FF /* ConfigureProtocol.swift in Sources */,
+				D19580352C12C08B0080E2FF /* UserChangeViewController.swift in Sources */,
 				D195802F2C11BB220080E2FF /* Extension+UIButton.swift in Sources */,
 				D1957FF42C1174C60080E2FF /* SceneDelegate.swift in Sources */,
 			);

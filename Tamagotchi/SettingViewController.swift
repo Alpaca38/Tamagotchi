@@ -90,13 +90,37 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            print("이름 변경 화면으로 전환")
+            let vc = UserChangeViewController()
+            vc.user = user
+            navigationController?.pushViewController(vc, animated: true)
         case 1:
-            print("다마고치 선택 화면을 전환")
+            let vc = SelectViewController()
+            vc.user = user
+            navigationController?.pushViewController(vc, animated: true)
         case 2:
-            print("데이터 초기화 할지 물어보는 경고창")
+            resetAlert(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실 건가용?")
         default:
             return
         }
+    }
+}
+
+extension SettingViewController {
+    func resetAlert(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "웅", style: .default) { [weak self] _ in
+            guard let self else { return }
+            print("데이터 초기화")
+            let vc = SelectViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            
+            present(vc, animated: true)
+        }
+        let cancel = UIAlertAction(title: "아냐!", style: .cancel)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
     }
 }

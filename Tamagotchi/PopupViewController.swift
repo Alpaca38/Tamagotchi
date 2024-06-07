@@ -30,8 +30,7 @@ class PopupViewController: UIViewController {
     }()
     
     var data: TamagotchiData?
-    
-    var okString: String = "시작하기"
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +120,11 @@ extension PopupViewController: ConfigureProtocol {
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         
         okButton.backgroundColor = .backgroundColor
-        okButton.setTitle(okString, for: .normal)
+        if user != nil {
+            okButton.setTitle("변경하기", for: .normal)
+        } else {
+            okButton.setTitle("시작하기", for: .normal)
+        }
         okButton.setTitleColor(.fontAndBorderColor, for: .normal)
         okButton.addTarget(self, action: #selector(okButtonTapped), for: .touchUpInside)
     }
@@ -131,21 +134,13 @@ extension PopupViewController: ConfigureProtocol {
     }
     
     @objc func okButtonTapped() {
-        if okButton.currentTitle == "시작하기" {
-            let vc = MainViewController()
-            vc.data = data
-            let navi = UINavigationController(rootViewController: vc)
-            navi.modalPresentationStyle = .fullScreen
-            navi.modalTransitionStyle = .crossDissolve
-            
-            present(navi, animated: true)
-        } else {
-            let vc = SelectViewController()
-            vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            
-            present(vc, animated: true)
-        }
+        let vc = MainViewController()
+        vc.data = data
+        let navi = UINavigationController(rootViewController: vc)
+        navi.modalPresentationStyle = .fullScreen
+        navi.modalTransitionStyle = .crossDissolve
+        
+        present(navi, animated: true)
     }
     
     

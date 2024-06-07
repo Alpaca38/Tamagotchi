@@ -17,6 +17,8 @@ class SelectViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    
+    var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +44,11 @@ extension SelectViewController: ConfigureProtocol {
     
     func configureUI() {
         view.backgroundColor = UIColor.backgroundColor
-        setNaviTitle("다마고치 선택하기", color: .black)
+        if user != nil {
+            setNaviTitle("다마고치 변경하기", color: .fontAndBorderColor)
+        } else {
+            setNaviTitle("다마고치 선택하기", color: .black)
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -66,12 +72,15 @@ extension SelectViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = list[indexPath.row]
-        if data.image != "noImage" {
+        if data.name != Tamagotchi.others.name {
             let vc = PopupViewController()
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
             vc.data = data
+            vc.user = user
             present(vc, animated: true)
+        } else {
+            showAlert(title: "준비중입니다.", message: nil)
         }
     }
     
