@@ -78,6 +78,7 @@ extension SelectViewController: UITableViewDelegate, UITableViewDataSource {
             let vc = PopupViewController()
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
+            UserDefaults.standard.tamagoData = data
             vc.data = data
             vc.user = user
             present(vc, animated: true)

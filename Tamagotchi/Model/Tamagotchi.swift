@@ -69,7 +69,7 @@ struct TamagotchiList {
     ]
 }
 
-struct TamagotchiData {
+struct TamagotchiData: Codable {
     var user: User
     
     let name: String
@@ -94,7 +94,7 @@ struct TamagotchiData {
     }
 }
 
-struct TamagotchiStatus {
+struct TamagotchiStatus: Codable {
     var level: Int = 1
     var food: Int = 0
     var water: Int = 0
@@ -104,7 +104,7 @@ struct TamagotchiStatus {
     }
 }
 
-struct User {
+struct User: Codable {
     var name: String = "대장"
     
     var title: String {

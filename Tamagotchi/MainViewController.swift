@@ -50,7 +50,7 @@ class MainViewController: UIViewController {
         return view
     }()
     
-    var data: TamagotchiData? {
+    var data: TamagotchiData? = UserDefaults.standard.tamagoData {
         didSet {
             changeTamagoState()
         }
