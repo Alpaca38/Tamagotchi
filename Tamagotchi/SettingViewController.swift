@@ -109,6 +109,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(vc, animated: true)
         case 1:
             let vc = SelectViewController()
+            vc.data = data
+            var changedList = UserDefaults.standard.tamagoList
+            for i in 0...2 {
+                changedList[i].tamagotchiStatus = data!.tamagotchiStatus
+                changedList[i].user = data!.user
+                changedList[i].image = Tamagotchi.allCases[i].image(for: data!.tamagotchiStatus.level)
+            }
+            UserDefaults.standard.tamagoList = changedList
             navigationController?.pushViewController(vc, animated: true)
         case 2:
             resetAlert(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실 건가용?")

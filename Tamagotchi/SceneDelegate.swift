@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         switch startMode {
         case .select:
-            startViewController = SelectViewController()
+            let navi = UINavigationController(rootViewController: SelectViewController())
+            startViewController = navi
         case .main:
             let navi = UINavigationController(rootViewController: MainViewController())
             startViewController = navi

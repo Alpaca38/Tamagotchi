@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Tamagotchi {
+enum Tamagotchi: Int, CaseIterable {
     case first, second, third, others
     
     var name: String {

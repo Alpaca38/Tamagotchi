@@ -30,7 +30,6 @@ class PopupViewController: UIViewController {
     }()
     
     var data: TamagotchiData? = UserDefaults.standard.tamagoData
-    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,10 +119,10 @@ extension PopupViewController: ConfigureProtocol {
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         
         okButton.backgroundColor = .backgroundColor
-        if user != nil {
-            okButton.setTitle("변경하기", for: .normal)
-        } else {
+        if UserDefaults.standard.startMode == StartMode.select.rawValue {
             okButton.setTitle("시작하기", for: .normal)
+        } else {
+            okButton.setTitle("변경하기", for: .normal)
         }
         okButton.setTitleColor(.fontAndBorderColor, for: .normal)
         okButton.addTarget(self, action: #selector(okButtonTapped), for: .touchUpInside)

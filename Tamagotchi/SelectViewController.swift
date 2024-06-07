@@ -12,20 +12,16 @@ class SelectViewController: UIViewController {
     
     let tableView = UITableView()
     
-    var list = TamagotchiList.tamagoList {
-        didSet {
-            tableView.reloadData()
-        }
+    var list: [TamagotchiData] {
+        get { return UserDefaults.standard.tamagoList }
+        
+        set { UserDefaults.standard.tamagoList = newValue }
     }
     
     var data: TamagotchiData? {
-        get {
-            return UserDefaults.standard.tamagoData
-        }
+        get { return UserDefaults.standard.tamagoData }
         
-        set {
-            UserDefaults.standard.tamagoData = newValue!
-        }
+        set { UserDefaults.standard.tamagoData = newValue! }
     }
 
     override func viewDidLoad() {
@@ -35,7 +31,11 @@ class SelectViewController: UIViewController {
         configureLayout()
         configureUI()
         
-        UserDefaults.standard.startMode = StartMode.select.rawValue
+        if data == nil {
+            UserDefaults.standard.startMode = StartMode.select.rawValue
+        } else {
+            UserDefaults.standard.startMode = StartMode.main.rawValue
+        }
     }
 
 }
@@ -54,6 +54,7 @@ extension SelectViewController: ConfigureProtocol {
     
     func configureUI() {
         view.backgroundColor = UIColor.backgroundColor
+        
         if data != nil {
             setNaviTitle("다마고치 변경하기", color: .fontAndBorderColor)
         } else {
@@ -86,7 +87,6 @@ extension SelectViewController: UITableViewDelegate, UITableViewDataSource {
             let vc = PopupViewController()
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
-            UserDefaults.standard.tamagoData = data
             vc.data = data
             present(vc, animated: true)
         } else {
