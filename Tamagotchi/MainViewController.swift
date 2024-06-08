@@ -247,6 +247,9 @@ extension MainViewController: ConfigureProtocol {
         
         waterButton.setFeedButton(title: "물먹기", image: .water!)
         waterButton.addTarget(self, action: #selector(waterButtonTapped), for: .touchUpInside)
+        
+        foodTextField.layoutIfNeeded()
+        waterTextField.layoutIfNeeded()
     }
 }
 
