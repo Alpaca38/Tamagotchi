@@ -58,6 +58,7 @@ extension UserChangeViewController: ConfigureProtocol {
         userTextField.textColor = .fontAndBorderColor
         userTextField.font = .contentsFont
         userTextField.text = data?.user.name
+        userTextField.delegate = self
     }
     
     
@@ -74,5 +75,13 @@ extension UserChangeViewController {
         } else {
             showAlert(title: "올바르지 않은 이름입니다.", message: "이름은 2글자 이상 6글자 이하까지 가능합니다.")
         }
+    }
+}
+
+extension UserChangeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        saveButtonTapped()
+        
+        return true
     }
 }
