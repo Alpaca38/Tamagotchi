@@ -237,6 +237,7 @@ extension MainViewController: ConfigureProtocol {
         foodTextField.placeholder = "밥주세용"
         foodTextField.font = .contentsFont
         foodTextField.textAlignment = .center
+        foodTextField.delegate = self
         
         foodButton.setFeedButton(title: "밥먹기", image: .food!)
         foodButton.addTarget(self, action: #selector(foodButtonTapped), for: .touchUpInside)
@@ -244,6 +245,7 @@ extension MainViewController: ConfigureProtocol {
         waterTextField.placeholder = "물주세용"
         waterTextField.font = .contentsFont
         waterTextField.textAlignment = .center
+        waterTextField.delegate = self
         
         waterButton.setFeedButton(title: "물먹기", image: .water!)
         waterButton.addTarget(self, action: #selector(waterButtonTapped), for: .touchUpInside)
@@ -301,5 +303,20 @@ extension MainViewController {
         getLevel()
         changeImage()
         changeTamagoState()
+    }
+}
+
+extension MainViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case foodTextField:
+            foodButtonTapped()
+        case waterTextField:
+            waterButtonTapped()
+        default:
+            return true
+        }
+        
+        return true
     }
 }
