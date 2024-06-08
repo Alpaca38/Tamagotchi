@@ -84,6 +84,11 @@ class MainViewController: UIViewController {
         foodTextField.underlined()
         waterTextField.underlined()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
 }
 
 extension MainViewController {
@@ -151,7 +156,6 @@ extension MainViewController: ConfigureProtocol {
     
     func configureLayout() {
         mainStackView.snp.makeConstraints {
-            $0.centerY.equalToSuperview().offset(-70)
             $0.centerX.equalToSuperview()
             $0.width.equalToSuperview().multipliedBy(0.55)
             $0.height.equalToSuperview().multipliedBy(0.5)
@@ -182,6 +186,7 @@ extension MainViewController: ConfigureProtocol {
             $0.top.equalTo(foodStackView.snp.bottom).offset(10)
             $0.width.equalTo(foodStackView)
             $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(view.keyboardLayoutGuide.snp.top).offset(-150)
         }
         
         foodTextField.snp.makeConstraints {
