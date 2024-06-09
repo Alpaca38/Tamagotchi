@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class UserChangeViewController: UIViewController {
+class UserChangeViewController: BaseViewController {
     
     let userTextField = UITextField()
     
@@ -49,7 +49,6 @@ extension UserChangeViewController: ConfigureProtocol {
     }
     
     func configureUI() {
-        view.backgroundColor = .backgroundColor
         setNaviTitle("\(data!.user.name)님의 이름 정하기", color: .fontAndBorderColor)
         
         let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))

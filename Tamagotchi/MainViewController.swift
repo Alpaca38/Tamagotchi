@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
     let bubbleImageView = UIImageView()
     let speechLabel = UILabel()
@@ -209,7 +209,6 @@ extension MainViewController: ConfigureProtocol {
     }
     
     func configureUI() {
-        view.backgroundColor = .backgroundColor
         navigationItem.backButtonDisplayMode = .minimal
         
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))

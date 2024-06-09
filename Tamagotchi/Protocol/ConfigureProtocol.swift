@@ -12,3 +12,13 @@ protocol ConfigureProtocol {
     func configureLayout()
     func configureUI()
 }
+
+class BaseViewController: UIViewController {
+    override func viewDidLoad() {
+        setBackgroundColor()
+    }
+    
+    func setBackgroundColor() {
+        view.backgroundColor = .backgroundColor
+    }
+}

@@ -37,7 +37,7 @@ enum SettingOptions: Int, CaseIterable {
     
 }
 
-class SettingViewController: UIViewController {
+class SettingViewController: BaseViewController {
     
     let tableView = UITableView()
     
@@ -78,7 +78,6 @@ extension SettingViewController: ConfigureProtocol {
     }
     
     func configureUI() {
-        view.backgroundColor = .backgroundColor
         setNaviTitle("설정", color: .fontAndBorderColor)
         
         tableView.delegate = self

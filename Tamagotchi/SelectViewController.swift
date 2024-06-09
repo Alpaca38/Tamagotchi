@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SelectViewController: UIViewController {
+class SelectViewController: BaseViewController {
     
     let tableView = UITableView()
     
@@ -58,8 +58,6 @@ extension SelectViewController: ConfigureProtocol {
     }
     
     func configureUI() {
-        view.backgroundColor = UIColor.backgroundColor
-        
         if UserDefaults.standard.startMode == StartMode.main.rawValue {
             setNaviTitle("다마고치 변경하기", color: .fontAndBorderColor)
         } else {
