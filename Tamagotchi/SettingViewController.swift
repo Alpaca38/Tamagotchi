@@ -128,17 +128,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 extension SettingViewController {
     func resetAlert(title: String?, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "웅", style: .default) { [weak self] _ in
-            guard let self else { return }
+        let ok = UIAlertAction(title: "웅", style: .default) { _ in
             UserDefaults.standard.tamagoList = TamagotchiList.tamagoList
             UserDefaults.standard.tamagoData = nil
             UserDefaults.standard.startMode = StartMode.select.rawValue
-            let vc = SelectViewController()
-            let navi = UINavigationController(rootViewController: vc)
-            navi.modalPresentationStyle = .fullScreen
-            navi.modalTransitionStyle = .crossDissolve
             
-            present(navi, animated: true)
+            SceneManager.shared.setScene(viewController: SelectViewController())
         }
         let cancel = UIAlertAction(title: "아냐!", style: .cancel)
         alert.addAction(ok)

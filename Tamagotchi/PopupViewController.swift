@@ -137,13 +137,8 @@ extension PopupViewController: ConfigureProtocol {
     }
     
     @objc func okButtonTapped() {
-        let vc = MainViewController()
-        vc.data = data
-        let navi = UINavigationController(rootViewController: vc)
-        navi.modalPresentationStyle = .fullScreen
-        navi.modalTransitionStyle = .crossDissolve
-        
-        present(navi, animated: true)
+        SceneManager.shared.setScene(viewController: MainViewController())
+        UserDefaults.standard.startMode = StartMode.main.rawValue
     }
     
     

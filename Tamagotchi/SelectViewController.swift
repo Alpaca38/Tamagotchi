@@ -32,16 +32,6 @@ class SelectViewController: BaseViewController {
         configureUI()
         
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        if data == nil {
-            UserDefaults.standard.startMode = StartMode.select.rawValue
-        } else {
-            UserDefaults.standard.startMode = StartMode.main.rawValue
-        }
-    }
 
 }
 
